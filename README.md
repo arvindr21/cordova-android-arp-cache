@@ -113,12 +113,12 @@ ARP.getParsedCache(function(resp) {
 > - error : Error Callback
 
 ```js
-	ARP.getMacFromIp('192.168.1.1', function(resp) {
-	    console.log(resp);
-	    // Output -> {"ip":"192.168.1.1","mac":"10:62:eb:7d:4a:df"}
-	}, function(err) {
-	    console.log(err);
-	});
+ARP.getMacFromIp('192.168.1.1', function(resp) {
+    console.log(resp);
+    // Output -> {"ip":"192.168.1.1","mac":"10:62:eb:7d:4a:df"}
+}, function(err) {
+    console.log(err);
+});
 ```
 
 ### Get IP address from Macaddress - Query ARP cache
@@ -128,10 +128,10 @@ ARP.getParsedCache(function(resp) {
 > - error : Error Callback
 
 ```js
-	ARP.getIPFromMac('10:62:eb:7d:4a:df', function(resp) {
-	    console.log(resp);
-	    // Output -> {"ip":"192.168.1.1","mac":"10:62:eb:7d:4a:df"}
-	}, function(err) {
-	    console.log(err);
-	});
+ARP.getIPFromMac('10:62:eb:7d:4a:df', function(resp) {
+    console.log(resp);
+    // Output -> {"ip":"192.168.1.1","mac":"10:62:eb:7d:4a:df"}
+}, function(err) {
+    console.log(err);
+});
 ```
