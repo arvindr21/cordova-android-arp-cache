@@ -1,6 +1,6 @@
 /**
  */
-package com.example;
+package com.arvindr21;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -16,25 +16,28 @@ import android.util.Log;
 
 import java.util.Date;
 
-public class MyCordovaPlugin extends CordovaPlugin {
-  private static final String TAG = "MyCordovaPlugin";
+import java.io.BufferedReader;
+
+public class ARP extends CordovaPlugin {
+  private static final String TAG = "ARP";
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
 
-    Log.d(TAG, "Initializing MyCordovaPlugin");
+    Log.d(TAG, "Initializing ARP");
   }
 
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-    if(action.equals("echo")) {
-      String phrase = args.getString(0);
-      // Echo back the first argument
-      Log.d(TAG, phrase);
-    } else if(action.equals("getDate")) {
-      // An example of returning data back to the web layer
-      final PluginResult result = new PluginResult(PluginResult.Status.OK, (new Date()).toString());
+    if(action.equals("getCache")) {
+      BufferedReader br = null;
+      br = new BufferedReader(new FileReader("/proc/net/arp"));
+      String line; String completeString = "";
+      while ((line = br.readLine()) != null) {
+        completeString += line;
+      }
+      final PluginResult result = new PluginResult(PluginResult.Status.OK, completeString);
       callbackContext.sendPluginResult(result);
-    }
+    } 
     return true;
   }
 

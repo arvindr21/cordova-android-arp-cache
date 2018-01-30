@@ -3,33 +3,33 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="my-cordova-plugin"
     version="1.0.0">
-    <name>Cordova Plugin Template</name>
-    <description></description>
+    <name>ARP Cache</name>
+    <description>Fetch ARP Cache in Android</description>
     <license>MIT</license>
     <keywords></keywords>
-    <repo>https://github.com/driftyco/cordova-plugin-template.git</repo>
-    <issue>https://github.com/driftyco/cordova-plugin-template/issues</issue>
+    <repo>https://github.com/arvindr21/cordova-android-arp-cache.git</repo>
+    <issue>https://github.com/arvindr21/cordova-android-arp-cache/issues</issue>
 
     <!-- android -->
     <platform name="android">
-      <js-module src="www/plugin.js" name="plugin">
+      <js-module src="www/arp.js" name="arp">
         <runs/>
 
-        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
-        <clobbers target="MyCordovaPlugin" />
+        <!-- This is the window variable name you want, like window.ARP -->
+        <clobbers target="ARP" />
       </js-module>
       <config-file target="res/xml/config.xml" parent="/*">
-        <feature name="MyCordovaPlugin">
-          <param name="android-package" value="com.example.MyCordovaPlugin" />
+        <feature name="ARP">
+          <param name="android-package" value="com.arvindr21.arp" />
           <param name="onload" value="true" />
         </feature>
       </config-file>
 
-      <source-file src="src/android/com/example/MyCordovaPlugin.java" target-dir="src/com/example/" />
+      <source-file src="src/android/com/arvindr21/ARP.java" target-dir="src/com/arvindr21/" />
     </platform>
 
     <!-- ios -->
-    <platform name="ios">
+    <!-- <platform name="ios">
         <js-module src="www/plugin.js" name="plugin">
             <runs/>
             <clobbers target="MyCordovaPlugin" />
@@ -42,5 +42,5 @@
 
         <header-file src="src/ios/MyCordovaPlugin.h" />
         <source-file src="src/ios/MyCordovaPlugin.m" />
-    </platform>
+    </platform> -->
 </plugin>
