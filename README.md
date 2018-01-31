@@ -63,43 +63,91 @@ ARP.getParsedCache(function(resp) {
     /*
 		[{
 		    "ip": "192.168.1.26",
-		    "mac": "e4:02:9b:5a:d1:ba"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "e4:02:9b:5a:d1:ba",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.11",
-		    "mac": "08:11:96:9c:64:d0"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "30:ae:a4:3f:42:c0",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.3",
-		    "mac": "dc:1a:c5:66:fa:a9"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "60:f8:1d:c9:1a:58",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.4",
-		    "mac": "60:f8:1d:c9:1a:58"
-		}, {
-		    "ip": "192.168.1.21",
-		    "mac": "30:ae:a4:0e:12:f8"
-		}, {
-		    "ip": "192.168.1.15",
-		    "mac": "30:ae:a4:03:2f:04"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "50:8f:4c:8e:a9:27",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
+		    "ip": "192.168.1.6",
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "2c:6e:85:6b:30:32",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.7",
-		    "mac": "50:8f:4c:8e:a9:27"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "08:11:96:9c:64:d0",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.8",
-		    "mac": "24:0a:c4:81:cf:a4"
-		}, {
-		    "ip": "192.168.1.16",
-		    "mac": "30:ae:a4:0a:c1:ac"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "24:0a:c4:81:cf:a4",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.9",
-		    "mac": "30:ae:a4:3f:43:18"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "10:07:b6:37:dc:ef",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.1",
-		    "mac": "10:62:eb:7d:4a:df"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "10:62:eb:7d:4a:df",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.17",
-		    "mac": "2c:6e:85:b2:12:f9"
-		}, {
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "2c:6e:85:b2:12:f9",
+		    "mask": "*",
+		    "device": "wlan0"
+		},
+		{
 		    "ip": "192.168.1.10",
-		    "mac": "24:0a:c4:13:39:8c"
+		    "hwType": "0x1",
+		    "flags": "0x2",
+		    "mac": "30:ae:a4:0e:12:f8",
+		    "mask": "*",
+		    "device": "wlan0"
 		}]
 
     */
@@ -143,34 +191,53 @@ ARP.getIPFromMac('10:62:eb:7d:4a:df', function(resp) {
 > - success : Success callback
 > - error : Error Callback
 
-Note: This method will roughly take 254 * 100 ms (25.4 seconds) to complete.
+Note: This method will take greater than 254 * 300 ms (76.20 seconds) to complete.
 
 ```js
 ARP.refreshCache(function(resp) {
     console.log(resp);
-    // Output -> List of reacheable IP address 
+    // Output -> Report of the IP sweep
 	/*
-	[{
-	    "ip": "192.168.1.1"
-	},
 	{
-	    "ip": "192.168.1.3"
-	},
-	{
-	    "ip": "192.168.1.5"
-	},
-	{
-	    "ip": "192.168.1.8"
-	},
-	{
-	    "ip": "192.168.1.10"
-	},
-	{
-	    "ip": "192.168.1.11"
-	},
-	{
-	    "ip": "192.168.1.17"
-	}]
+	    "reachable": [
+	    {
+	        "ip": "192.168.1.1"
+	    },
+	    {
+	        "ip": "192.168.1.5"
+	    },
+	    {
+	        "ip": "192.168.1.8"
+	    },
+	    {
+	        "ip": "192.168.1.10"
+	    }],
+	    "notReachable": [
+	    {
+	        "ip": "192.168.1.2"
+	    },
+	    {
+	        "ip": "192.168.1.3"
+	    },
+	    {
+	        "ip": "192.168.1.4"
+	    },
+	    {
+	        "ip": "192.168.1.6"
+	    },
+	    {
+	        "ip": "192.168.1.7"
+	    },
+	    .... SNIPP
+	    ....
+	    .... SNIPP
+	    {
+	        "ip": "192.168.1.253"
+	    },
+	    {
+	        "ip": "192.168.1.254"
+	    }]
+	}
 
 	*/
 }, function(err) {

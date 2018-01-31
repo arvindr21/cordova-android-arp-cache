@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="arp-cache-fetch"
-    version="1.0.0">
+    version="0.3.0">
     <name>ARP Cache</name>
     <description>Fetch ARP Cache in Android</description>
     <license>MIT</license>

@@ -93,7 +93,11 @@ public class ARP extends CordovaPlugin {
             if (mac.matches("..:..:..:..:..:..")) {
               JSONObject item = new JSONObject();
               item.put("ip", ip);
+              item.put("hwType", splitted[1]);
+              item.put("flags", splitted[2]);
               item.put("mac", mac);
+              item.put("mask", splitted[4]);
+              item.put("device", splitted[5]);
               jsonArray.put(item);
             }
           }
@@ -187,7 +191,9 @@ public class ARP extends CordovaPlugin {
     } else if (action.equals("refreshCache")) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
-          JSONArray jsonArray = new JSONArray();
+          JSONObject root = new JSONObject();
+          JSONArray reachable = new JSONArray();
+          JSONArray notReachable = new JSONArray();
           try {
             String ipString = getLocalAddress(true); // IPV4
 
@@ -203,15 +209,21 @@ public class ARP extends CordovaPlugin {
               ip[3] = (byte)i;
               InetAddress address = InetAddress.getByAddress(ip);
 
-              if (address.isReachable(100)) {
+              JSONObject item = new JSONObject();
+              item.put("ip", address.getHostAddress());
+
+              if (address.isReachable(300)) {
                 String output = address.toString().substring(1);
-                JSONObject item = new JSONObject();
-                item.put("ip", address.getHostAddress());
-                jsonArray.put(item);
-              }
+                reachable.put(item);
+              } else {
+                notReachable.put(item);
+              } 
             }
 
-            callbackContext.success(jsonArray.toString());
+            root.put("reachable", reachable);
+            root.put("notReachable", notReachable);
+
+            callbackContext.success(root.toString());
           } catch (Exception e) {
             e.printStackTrace();
             callbackContext.error("Exception Occoured: " + e.toString());
