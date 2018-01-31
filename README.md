@@ -10,6 +10,9 @@ Get Android ARP Cache or Query ARP Cache against an IP Address or a MAC Address.
 - Android
 
 ## Installation
+> cordova plugin add cordova-arp-cache-fetch
+
+or
 
 > cordova plugin add https://github.com/arvindr21/cordova-android-arp-cache.git
 

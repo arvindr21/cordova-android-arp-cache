@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="arp-cache-fetch"
+    id="cordova-arp-cache-fetch"
     version="0.3.0">
     <name>ARP Cache</name>
     <description>Fetch ARP Cache in Android</description>

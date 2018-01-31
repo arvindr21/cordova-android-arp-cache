@@ -2,7 +2,7 @@
   "name": "ARP Cache Fetch",
   "version": "0.3.0",
   "cordova": {
-    "id": "arp-cache-fetch",
+    "id": "cordova-arp-cache-fetch",
     "platforms": [
       "android"
     ]
