@@ -1,12 +1,11 @@
 {
-  "name": "cordova-plugin-template",
+  "name": "ARP Cache Fetch",
   "version": "1.0.0",
   "cordova": {
-    "id": "cordova-plugin-template",
+    "id": "arp-cache-fetch",
     "platforms": [
-      "android",
-      "ios",
+      "android"
     ]
   },
-  "description": "A starting point for a Cordova Plugin"
+  "description": "Fetch ARP Cache in Android"
 }

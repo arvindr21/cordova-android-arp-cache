@@ -8,18 +8,23 @@ var ARP = {
     },
     getParsedCache: function(success, error) {
         exec(function(data) {
-            success(JSON.parse(data));
+            success(JSON.parse(data || ''));
         }, error, PLUGIN_NAME, 'getParsedCache');
     },
     getMacFromIp: function(IP, success, error) {
         exec(function(data) {
-            success(JSON.parse(data));
+            success(JSON.parse(data || ''));
         }, error, PLUGIN_NAME, 'getMacFromIp', [IP]);
     },
     getIPFromMac: function(Mac, success, error) {
         exec(function(data) {
-            success(JSON.parse(data));
+            success(JSON.parse(data || ''));
         }, error, PLUGIN_NAME, 'getIPFromMac', [Mac]);
+    },
+    refreshCache: function(success, error) {
+        exec(function(data) {
+            success(JSON.parse(data || ''));
+        }, error, PLUGIN_NAME, 'refreshCache');
     }
 
 };

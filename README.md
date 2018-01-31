@@ -1,7 +1,9 @@
 Android ARP Cache
 ======
 
-Get Android ARP Cache or Query ARP Cache against an IP Address.
+Get Android ARP Cache or Query ARP Cache against an IP Address or a MAC Address.
+
+- Note: This plugin only retrieves the contents of the ARP cache file. The contents of the file are totally dependent on Android OS. More information: [ARP Man Page](https://linux.die.net/man/7/arp).
 
 ## Supported Platforms
 
@@ -135,3 +137,42 @@ ARP.getIPFromMac('10:62:eb:7d:4a:df', function(resp) {
     console.log(err);
 });
 ```
+
+### Refresh ARP cache
+
+> - success : Success callback
+> - error : Error Callback
+
+Note: This method will roughly take 254 * 100 ms (25.4 seconds) to complete.
+
+```js
+ARP.refreshCache(function(resp) {
+    console.log(resp);
+    // Output -> List of reacheable IP address 
+	/*
+	[{
+	    "ip": "192.168.1.1"
+	},
+	{
+	    "ip": "192.168.1.3"
+	},
+	{
+	    "ip": "192.168.1.5"
+	},
+	{
+	    "ip": "192.168.1.8"
+	},
+	{
+	    "ip": "192.168.1.10"
+	},
+	{
+	    "ip": "192.168.1.11"
+	},
+	{
+	    "ip": "192.168.1.17"
+	}]
+
+	*/
+}, function(err) {
+    console.log(err);
+});
