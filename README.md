@@ -16,6 +16,10 @@ or
 
 > cordova plugin add https://github.com/arvindr21/cordova-android-arp-cache.git
 
+## Example
+
+Example App: [Cordova-NetworkPeers](https://github.com/arvindr21/Cordova-NetworkPeers)
+
 ## Usage
 
 This plugin defines a global `ARP` object.
