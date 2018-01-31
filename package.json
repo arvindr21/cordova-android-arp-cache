@@ -1,5 +1,5 @@
 {
-  "name": "ARP Cache Fetch",
+  "name": "cordova-arp-cache-fetch",
   "version": "0.3.0",
   "cordova": {
     "id": "cordova-arp-cache-fetch",
