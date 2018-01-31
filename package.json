@@ -1,6 +1,6 @@
 {
   "name": "cordova-arp-cache-fetch",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "cordova": {
     "id": "cordova-arp-cache-fetch",
     "platforms": [
