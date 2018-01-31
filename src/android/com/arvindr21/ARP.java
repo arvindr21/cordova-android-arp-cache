@@ -90,7 +90,7 @@ public class ARP extends CordovaPlugin {
           if (splitted != null && splitted.length >= 4) {
             String ip = splitted[0];
             String mac = splitted[3];
-            if (mac.matches("..:..:..:..:..:..")) {
+            if (mac.matches("..:..:..:..:..:..") && !mac.equals("00:00:00:00:00:00")) {
               JSONObject item = new JSONObject();
               item.put("ip", ip);
               item.put("hwType", splitted[1]);
@@ -129,7 +129,7 @@ public class ARP extends CordovaPlugin {
             String[] splitted = line.split(" +");
             if (splitted != null && splitted.length >= 4 && ip.equals(splitted[0])) {
               String mac = splitted[3];
-              if (mac.matches("..:..:..:..:..:..")) {
+              if (mac.matches("..:..:..:..:..:..") && !mac.equals("00:00:00:00:00:00")) {
                 JSONObject item = new JSONObject();
                 item.put("ip", ip);
                 item.put("mac", mac);
